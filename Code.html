@@ -7,6 +7,75 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TPC-PCE Student Form</title>
+  <style>
+h1{
+    color: #ffff;
+}
+/* Styling the Body element i.e. Color,
+Font, Alignment */
+body {
+background-color: white;
+font-family: Verdana;
+text-align: center;
+background-image: url(pieces-blue-stationery.jpg);
+background-size: cover;
+}
+
+/* Styling the Form (Color, Padding, Shadow) */
+form {
+background-color: #afcae1;
+max-width: 500px;
+margin: 50px auto;
+padding: 30px 20px;
+box-shadow: 2px 5px 10px #0a1172;
+border-radius: 15px;
+}
+
+/* Styling form-control Class */
+.form-control {
+text-align: left;
+margin-bottom: 25px;
+}
+
+/* Styling form-control Label */
+.form-control label {
+display: block;
+margin-bottom: 10px;
+}
+
+/* Styling form-control input,
+select, textarea */
+.form-control input,
+.form-control select,
+.form-control textarea {
+border: 1px solid #777;
+border-radius: 2px;
+font-family: inherit;
+padding: 10px;
+display: block;
+width: 95%;
+}
+
+.form-control input[type="radio"],
+.form-control input[type="checkbox"] {
+display: inline-block;
+width: auto;
+}
+
+button {
+color: #ffff;
+background-color: #52b2bf;
+border: 1px solid #281e5d;
+border-radius: 15px;
+font-family: inherit;
+font-size: 21px;
+display: block;
+width: 100%;
+margin-top: 50px;
+margin-bottom: 20px;
+}
+</style>
+
 </head>
 
 <body>
@@ -50,5 +119,54 @@
         <u><b>For more information:</b></u>
         <a href="https://tpc.pce.ac.in/">TPC-PCE </a>
     </form>
+  <script type="text/javascript">
+function chk() {
+            var x = document.getElementById("email").value;
+            var atpos = x.indexOf("@");
+            var lastat = x.lastIndexOf("@");
+            var firstdot = x.indexOf(".");
+            var dotpos = x.lastIndexOf(".");
+
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length || firstdot < atpos || atpos < lastat) {
+                alert("Not a valid email address!");
+                return false;
+            }
+
+            var phoneNumber = document.getElementById("phone-number").value;
+            var cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+
+            if (cleanedPhoneNumber.length !== 10) {
+                alert("Not a valid phone number!");
+                return false;
+            }
+
+            var radios = document.getElementsByName("gender");
+            var isChecked = false;
+
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+
+            if (!isChecked) {
+                alert("Please select a gender.");
+                return false;
+            }
+
+            document.getElementById("form").submit();
+            alert("Form Submitted Successfully!");
+        }
+
+function confCancel() {
+    var cancel = confirm("Are you sure you want to cancel the form?");
+    
+    if (cancel) {
+        alert("Form canceled.");
+    }
+}
+</script>
+
 </body>
 </html>
