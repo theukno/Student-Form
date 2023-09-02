@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+  
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPC-PCE Student Form</title>
+</head>
+
+<body>
+    <h1><u>TPC-PCE Student Form</u></h1>
+    <form id="form">
+        <div class="form-control">
+            <label for="name" id="label-name">Name:</label>
+            <input type="text" id="name" required placeholder="Eg.: Mimi" />
+        </div>
+        <div class="form-control">
+            <label for="email" id="label-email">Email:</label>
+            <input type="email" id="email" pattern="[A-Z a-z]{1-100}-[0-9]{10}-[@]{1}-[.]{1}" required placeholder="lax2107@gmail.com" />
+        </div>
+        <div class="form-control">
+            
+            <label for="phone-number" id="label-phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" pattern="[0-9]{10}" required placeholder="0123456789" />
+        </div>
+        <div class="form-control">
+            <label for="role" id="label-role">Currently, which Year Student?</label>
+            <select name="role" id="role">
+                <option value="F.E. Student">F.E. Student</option>
+                <option value="S.E. Student">S.E. Student</option>
+                <option value="T.E. Student">T.E. Student</option>
+                <option value="None">None of the above option</option>
+            </select>
+        </div>
+        <div class="radio-container">
+            <label for="female">
+                <input type="radio" id="female" name="gender" /> Female
+            </label>
+            <label for="male">
+                <input type="radio" id="male" name="gender" /> Male
+            </label>
+            <label for="other">
+                <input type="radio" id="other" name="gender" /> Other
+            </label>
+        </div>
+        <button type="submit" value="submit" onclick="chk()" >Submit</button>
+        <button type="cancel" value="cancel" onclick="confCancel()">Cancel</button>
+        <u><b>For more information:</b></u>
+        <a href="https://tpc.pce.ac.in/">TPC-PCE </a>
+    </form>
+</body>
+</html>
